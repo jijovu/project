@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Page</title>
+    <link rel="stylesheet" href="{% static 'css/transaction.css' %}" />
+  </head>
+  <body>
+    <nav>
+      <div style="margin-top: 15px">
+        <a href="/home/">HOME</a>
+        <a href="/account_open/">CREATE ACCOUNT</a>
+        <a href="/login/">LOGIN</a>
+      </div>
+    </nav>
+    <div class="button_container">
+      <div class="account">
+        <a href="/account/{{ user_info.id }}">
+          <button type="submit">Back to account</button>
+        </a>
+      </div>
+      <div class="back_to_login">
+        <a href="/login/">
+          <button type="submit">Back to Login</button>
+        </a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="inner_container">
+        <table>
+          <thead>
+            <tr>
+              <th>Account Number</th>
+              <th>Deposit</th>
+              <th>Withdraw</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Current Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for transaction in account_info %}
+            <tr>
+              <td>{{ transaction.Account_Number }}</td>
+              <td>{{ transaction.Deposit }}₹</td>
+              <td>{{ transaction.Withdraw }}₹</td>
+              <td>{{ transaction.Date }}</td>
+              <td>{{ transaction.Time }}</td>
+              <td>{{ transaction.Current_Balance }}₹</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <!-- <form action="/transaction/" method="POST">
+          {% csrf_token %}
+          {% if error_message %}
+          <p>{{error_message}}</p>
+          {%  endif %}
+        <div> 
+          <label for="account_number">Account Number</label>
+          <input type="text" id="account_number" name="account_number" required>
+        </div>
+        <div class="account">
+          <a href="/account/">
+            <button type="submit">Back to account</button>
+          </a>
+        </div>
+      </form> -->
+        <form action="/transaction/{{user_info.id}}" method="POST">
+          {% csrf_token %} {% if error_message %}
+          <p>{{error_message}}</p>
+          {% endif %}
+          <!-- <div>
+            <label for="account_number">Account Number</label>
+            <input
+              type="text"
+              id="account_number"
+              name="account_number"
+              value="{{ transaction.Account_Number}}"
+              required
+            />
+          </div> -->
+          <div>
+            <label for="start_date">Start Date</label>
+            <input
+              type="text"
+              id="start_date"
+              name="start_date"
+              pattern="\d{4}-\d{2}-\d{2}"
+              placeholder="YYYY-MM-DD"
+              required
+            />
+          </div>
+          <div>
+            <label for="end_date">End Date</label>
+            <input
+              type="text"
+              id="end_date"
+              name="end_date"
+              pattern="\d{4}-\d{2}-\d{2}"
+              placeholder="YYYY-MM-DD"
+              required
+            />
+          </div>
+          <button type="submit">Filter Transactions</button>
+        </form>
+      </div>
+    </div>
+
+    <button id="sort-by-deposit">Sort by Deposit</button>
+    <button id="sort-by-withdrawal">Sort by Withdrawal</button>
+    <script>
+      // JavaScript to send request when buttons are clicked
+      document
+        .getElementById("sort-by-deposit")
+        .addEventListener("click", function () {
+          sendSortRequest("deposit");
+        });
+
+      document
+        .getElementById("sort-by-withdrawal")
+        .addEventListener("click", function () {
+          sendSortRequest("withdrawal");
+        });
+
+      // Function to send sorting request
+      function sendSortRequest(sortBy) {
+        fetch(`/transaction/?sort=${sortBy}`, {
+          method: "GET",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Handle response data, update the table with new sorted data
+            const tbody = document.querySelector("tbody");
+            tbody.innerHTML = ""; // Clear the table body
+            data.forEach((transaction) => {
+              const row = document.createElement("tr");
+              row.innerHTML = `
+              <td>${transaction.Account_Number}</td>
+              <td>${transaction.Deposit}₹</td>
+              <td>${transaction.Withdraw}₹</td>
+              <td>${transaction.Date}</td>
+              <td>${transaction.Time}</td>
+              <td>${transaction.Current_Balance}₹</td>
+            `;
+              tbody.appendChild(row);
+            });
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+    </script>
+  </body>
+</html>

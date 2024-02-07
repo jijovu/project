@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>account_login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  </head>
+  <body>
+    <nav>
+      <a href="/home/">HOME</a>
+      <a href="/account_open/">CREATE ACCOUNT</a>
+      <a href="/login/">LOGIN</a>
+    </nav>
+    <form action="/admin_login/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h3>Welcome Admin....</h3>
+      <h2>Admin Login</h2>
+
+      {% if error__message %}
+      <p style="color: red">{{error__message}}</p>
+      {% endif %}
+
+      <label for="email">Email:</label>
+      <input type="text" id="name" name="name" required />
+
+       <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required /> 
+      <!-- 
+        <label for="account_number">Account Number:</label>
+        <input type="text" id="account_number" name="account_number" required> -->
+
+      <p class="error-message" id="deposit-error"></p>
+
+      <button type="submit">Proceed to login</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+body {
+  background: url("../../static/img/img1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  background-color: #eee;
+  padding: 10px;
+}
+
+nav a {
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+nav a:hover {
+  background-color: red;
+}
+
+header {
+  background: url("../../static/img/img1.jpg");
+  border-radius: 1rem;
+  color: white;
+  padding: 1em;
+  text-align: center;
+  margin-top: 50px;
+  animation: header 2s steps(100000000000000000000);
+  font-family: 'Arial Black', sans-serif; 
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px; 
+}
+
+@keyframes header{
+  from {
+    margin-top: 0px;
+  }
+  to {
+    margin-top: 50px;
+  }
+}
+
+main {
+  padding: 2em;
+}
+
+section {
+  margin-bottom: 1.5em;
+}
+
+h2 {
+  color: #ffff;
+}
+
+p {
+  color: #ffff;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+
+.social a i{
+  font-size: 2rem;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+
+/* ---------------------------footer------------------------------- */
+footer{
+ 
+  border-radius: 100px;
+}
+.container{
+  margin-top: 50px;
+}
+.box{
+    color: white;
+    min-height: 50px;
+}
+h4{
+    font-size: 1.3rem;
+    background: red;
+    text-align: center;
+    border-radius: 10px;
+}
+.box li{
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+.box li:hover{
+  background: white;
+  color: red;
+}
+
+.copyright{
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Background color for the footer */
+  color: #fff; /* Text color for the copyright notice */
+  padding: 10px 0; /* Adjust padding as needed */
+  text-align: center; /* Center the text horizontally */
+  font-family: "Roboto Thin", Arial, sans-serif; /* Example: Roboto Thin font */
+  
+}
+
+.copyright a {
+  text-decoration: none;
+  color: white;
+}
+
+.typewriter-text {
+  text-align: justify;
+  letter-spacing: 2px;
+  line-height: 30px;
+  background: rgba(0, 0, 0, 0.441);
+  animation: typing 2s steps(10000);
+}
+
+/* Typing animation keyframes */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+

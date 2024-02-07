@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>edit profile</title>
+    <link rel="stylesheet" href="{% static 'css/account_open.css' %}" />
+  </head>
+  <body>
+    <nav>
+      <a href="/home/">HOME</a>
+      <a href="/account_open/">CREATE ACCOUNT</a>
+      <a href="/login/">LOGIN</a>
+    </nav>
+  {% if user_info %}
+    <div class="form_container">
+      <form action="/edit_profile/{{user_info.id}}" method="post">
+        {% csrf_token %}
+        <h2>Edit Profile</h2>
+        
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" value="{{user_info.FirstName}}"/>
+
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" value="{{user_info.LastName}}" required />
+
+        <label for="email">Email: {{user.FirstName}}</label>
+        <input type="email" id="email" name="email" value="{{user_info.Email}}"required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" value="{{user_info.Number}}"required maxlength="10" />
+
+        <label for="phone">Password:</label>
+        <input type="text" id="phone" name="password" value="{{user_info.Password}}"required maxlength="10" />
+
+       {% endif %}
+       
+        <button type="submit">Confirm Changes</button>
+      </form>
+    </div>
+  </body>
+</html>

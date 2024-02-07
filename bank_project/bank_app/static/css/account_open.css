@@ -1,0 +1,123 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url("../../static/img/img3.png");
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  background-color: #eee;
+  padding: 10px;
+  height: 40px;
+}
+
+nav a {
+padding: 10px;
+border-radius: 5px;
+color: black;
+transition: background-color 0.3s ease;
+text-decoration: none;
+margin-right: 10px;
+}
+
+nav a:hover {
+background-color: red;
+}
+
+form {
+    max-width: 40rem;
+    margin: 100px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: form 2s steps(10000);
+}
+
+@keyframes form {
+    from{
+        width: 10rem;
+    }
+    to{width: 100rem;}
+}
+h2 {
+    text-align: center;
+    color: #333333;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555555;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: red;
+    color: #ffffff;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: rgb(0, 50, 100);
+}
+
+
+input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(200, 50, 50);
+  }
+  .button {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 10px rgb(200, 50, 50); /* Green glowing effect on focus */
+  }
+
+  /* Add a pulsating animation for the glowing effect */
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 10px rgb(200, 50, 50);
+    }
+    50% {
+      box-shadow: 0 0 20px rgb(200, 50, 50);
+    }
+    100% {
+      box-shadow: 0 0 10px rgb(200, 50, 50)
+    }
+  }
+
+  input:focus {
+    animation: glow 1s infinite; /* Apply the glow animation on focus */
+  }
+
+

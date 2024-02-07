@@ -1,0 +1,182 @@
+body {
+  background: url("../../static/img/img1.jpg");
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+nav {
+  display: flex;
+  background-color: #eee;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+nav a {
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+nav a:hover {
+  background-color: red;
+}
+
+nav div {
+  text-align: right;
+}
+.container {
+  margin-left: 10%;
+  margin-top: 5%;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.479);
+}
+
+.container p {
+  padding: 20px;
+}
+
+.container_p {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(255, 255, 255);
+}
+/* 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.804);
+}
+
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+}
+
+th {
+  text-align: left;
+}
+
+thead {
+  th {
+    background-color: #498988;
+  }
+} */
+
+#table{
+  text-align: center;
+  width: 100%;
+}
+table{
+  width: 100%;
+}
+table,th,td{
+  padding: 20px;
+  background-color: rgba(240, 248, 255, 0.639);
+}
+tr :hover{
+  transform: scale(1.05);
+  color:darkblue;
+}
+th:nth-child(even),td:nth-child(even) {
+  background-color:rgb(171, 190, 253);
+  color: white;
+}
+main.table{
+  width: 82vw;
+  height: 90vw;
+  background-color: #fff5;
+}
+.table__body{
+  top: 200px;
+  margin: 0 auto;
+}
+
+.button_container{
+  display: flex;
+  justify-content: space-between;
+} 
+.back_to_login button{
+  background-color: rgb(0, 50, 100);
+  color: #ffffff;
+  padding: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.back_to_login a :hover{
+  color: red;
+}
+
+.account button {
+  background-color: rgb(0, 50, 100);
+  color: #ffffff;
+  padding: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.account button:hover {
+  color: green;
+  transform: scale(1.1);
+}
+.account a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ------------------transaction_button----------------- */
+
+.transaction_button button {
+  margin-left: 40%;
+  background-color: rgb(0, 50, 100);
+  color: #ffffff;
+  padding: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: fit-content;
+  font-size: 90%;
+  font-weight: bold;
+}
+.transaction_button button:hover {
+  color: greenyellow;
+}
+.transaction_button a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #71a5ff;
+}
+
+input,
+textarea {
+  width: 20%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+nav {
+display: flex;
+background-color: #eee;
+padding: 10px;
+}
+
+nav a {
+padding: 10px;
+border-radius: 5px;
+color: black;
+transition: background-color 0.3s ease;
+text-decoration: none;
+margin-right: 10px;
+}
+
+nav a:hover {
+background-color: rgb(50, 150, 200);
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+main {
+    padding: 2em;
+}
+
+section {
+    margin-bottom: 1.5em;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #428bca;
+    color: white;
+    border-radius: 5px;
+}

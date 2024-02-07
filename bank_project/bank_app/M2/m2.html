@@ -1,0 +1,1460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <!-- Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Msquared Elearning</title>
+<meta name="description" content="Elearning Certificate Courses Are Designed To Provide Training That's As Streamlined And To-the-point As Possible. Built For Learners Of Any Ability Or Knowledge Level, Each Of These Online Classes Provides Training In A Single Topic In Clear Detail." />
+<meta name="robots" content="index,follow"/>
+<link rel="alternate" hreflang="x-default" href="https://m2elearning.com/" />
+<link rel="canonical" href="https://m2elearning.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Msquared Elearning"/>
+<meta property="og:description" content="Elearning Certificate Courses Are Designed To Provide Training That's As Streamlined And To-the-point As Possible. Built For Learners Of Any Ability Or Knowledge Level, Each Of These Online Classes Provides Training In A Single Topic In Clear Detail."/>
+<meta property="og:image" content=""/>
+<meta property="og:site_name" content="MSquared ELearning" />
+<meta property="og:url" content="https://m2elearning.com/"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Msquared Elearning"/>
+<meta name="twitter:url" content="https://m2elearning.com/"/>
+<meta name="twitter:description" content="Elearning Certificate Courses Are Designed To Provide Training That's As Streamlined And To-the-point As Possible. Built For Learners Of Any Ability Or Knowledge Level, Each Of These Online Classes Provides Training In A Single Topic In Clear Detail."/>
+<meta name="twitter:image" content=""/>
+<meta name="twitter:site" content="@msquaredelearning" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/png" href="https://m2elearning.com/public/elearnfront/assets/frontasset/img/logo/favicon.png">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/frontasset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/bootstrap-3.4.1.min.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/slicknav.min.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/default.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/style.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/responsive.css">
+    <link rel="stylesheet" href="https://m2elearning.com/CSS/toastr.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/animate.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/sweetalert.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/frontasset/css/jqueryvalidatecustom.css">
+    <link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/custom.css">
+    <script src="https://m2elearning.com/public/elearnfront/assets/js/jquery.min.js"></script>
+    <script src="https://m2elearning.com/public/elearnfront/assets/js/bootstrap-3.4.1.min.js"></script>
+    <script src="https://m2elearning.com/public/elearnfront/assets/js/jquery.validate.min.js"></script>
+    <script src="https://m2elearning.com/public/elearnfront/assets/js/jquery.blockUI.js"></script>
+    <script src="https://m2elearning.com/public/elearnfront/assets/js/sweetalert.min.js"></script>
+    <script src="https://m2elearning.com/public/elearnfront/assets/js/contactus.js"></script>
+    <script src="https://m2elearning.com/public/elearnfront/assets/js/contact.js"></script>
+    <script src="https://m2elearning.com/public/elearnfront/assets/js/custom.js"></script>
+    <script src="https://m2elearning.com/CSS/toastr.js"></script>
+      <script>
+        $('#contact-banner').hide();
+        var countrycode = "";
+        var country = "";
+        var latitude = "";
+        var longitude = "";
+        var state = "";
+        var city = "";
+        $.getJSON('https://ipapi.co/json/', function(data) {
+            latitude = data.latitude;
+            longitude = data.longitude;
+
+            state = data.region;
+            city = data.city;
+            country = data.country_name;
+            countrycode = data.country_code;
+            $("#tcountrycode").val("");
+            $("#tcountrycode").val(countrycode);
+            document.cookie = "countrycode = " + countrycode;
+        })
+        $(document).ready(function() {
+            var hai = localStorage.getItem('language');
+
+            if (hai == "Spanish") {
+
+                document.getElementById('lang_test').innerHTML = '  <a href="https://m2elearning.com/front/index_pp" style="font-size:small;">HOME</a>';
+            } else {
+                document.getElementById('lang_test').innerHTML = '  <a href="https://m2elearning.com/front/index" style="font-size:small;">HOME</a>';
+
+            }
+
+            $("#language").change(function() {
+                var language = $(this).children("option:selected").val();
+                localStorage.setItem('language', language);
+                var hai = localStorage.getItem('language');
+                var countrycode = $("#tcountrycode").val();
+                var pathname = $.trim(window.location.pathname.split("/").pop()); // Returns path only (/path/example.html)
+
+                var index = "index";
+                if (language === "Spanish") {
+                    if (pathname === index || pathname == "") {
+                        $.ajax({
+                            url: "https://m2elearning.com/front/index_pp",
+                            method: "POST",
+                            async: true,
+                            data: {
+                                language: language,
+                                countrycode: countrycode
+                            },
+                            success: function(response) {
+                                location.href = "https://m2elearning.com/front/index_pp";
+                            }
+                        });
+                        $.ajax({
+                            url: "https://m2elearning.com/front/language_land_sp",
+                            method: "POST",
+                            async: true,
+                            data: {
+                                language: language
+                            },
+
+                            success: function(response) {
+
+
+                            }
+
+                        });
+                    } else {
+                        $.ajax({
+                            url: "https://m2elearning.com/front/language_land_sp",
+                            method: "POST",
+                            async: true,
+                            data: {
+                                language: language
+                            },
+
+                            success: function(response) {
+                                location.reload();
+
+                            }
+
+                        });
+                    }
+
+                } else {
+                    if (pathname === index || pathname == "") {
+                        $.ajax({
+                            url: "https://m2elearning.com/front/index_pp",
+                            method: "POST",
+                            async: true,
+                            data: {
+                                language: language,
+                                countrycode: countrycode
+                            },
+                            success: function(response) {
+                                location.href = "https://m2elearning.com/front/index_pp";
+                            }
+                        });
+                        $.ajax({
+                            url: "https://m2elearning.com/front/language_land",
+                            method: "POST",
+                            async: true,
+                            data: {
+                                language: language
+                            },
+
+                            success: function(response) {
+
+                            }
+
+                        });
+                    } else {
+                        $.ajax({
+                            url: "https://m2elearning.com/front/language_land",
+                            method: "POST",
+                            async: true,
+                            data: {
+                                language: language
+                            },
+
+                            success: function(response) {
+                                location.reload();
+                            }
+
+                        });
+                    }
+
+                }
+
+
+            });
+            var language = $("#language").children("option:selected").val();
+            if (language == "Spanish") {
+                $('#contact-banner').show();
+            } else {
+                $('#contact-banner').hide();
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+    <!-- header area start -->
+    <div class="container-fluid" id="contact-banner" style="background: #046daa;height: 30px;">
+        <div class="row" style="margin-top: 7px;">
+            <div class="col-md-12">
+                <ul class="list-inline top-contacts" style="color: #fff;">
+                    <li id="txt-banner1">
+                        <span>Español: Jostin Alvarado @ +506 6174 8095</span>
+                    </li>
+                    <li style="float:right;">
+                        <span id="txt-banner2"> <i class="fa fa-envelope"></i> Email: <a href="mailto:jostin.alvarado@m2comsys.us">jostin.alvarado@m2comsys.us</a></span>
+                    </li>
+                    <li>
+                        <i class="fa fa-mobile"></i> Contact: +506 6174 8095
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <header id="header">
+        <div class="header-area">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                                                                                    <a href="https://m2elearning.com/front/index">
+                                <img src="https://m2elearning.com/storage/cms/logo/61de7f810e60b.png" alt="" class="header-logo">
+                            </a>
+
+                            
+                        </div>
+                    </div>
+                                        <div class="col-lg-7 d-none d-lg-block" style="margin-left: -40px;">
+                        <div class="main-menu">
+                            <nav class="nav-menu nav-bar">
+                                <ul id="navigation">
+                                    <li class=" ">
+                                        <div id="lang_test"></div>
+                                    </li>
+                                    <li class="">
+                                        <a href="https://m2elearning.com/front/start_learning?countrycode=IN" style="font-size:small;">START LEARNING                                        </a>
+                                    </li>
+                                    <li class=""><a href="https://m2elearning.com/front/become_tutor" style="font-size:small;">BECOME TUTOR</a></li>
+                                    <li class=""><a href="https://m2elearning.com/front/about_us" style="font-size:small;">ABOUT US</a></li>
+                                    <li class="notranslate "><a href="https://m2elearning.com/front/contact_us" style="font-size:small;">CONTACT US</a></li>
+
+                                    <div class="viss">
+                                        <li> <a href="https://m2elearning.com/front/login" class="log-bttn">Login</a></li>
+                                        <li><a href="https://m2elearning.com/front/signup" class="sign-bttn" style="color:#333">Register</a></li>
+                                    </div>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 divmar" style="margin-left: -110px;">
+                        <div class="login-reg" id="loginheader" style="margin-right: -10px;">
+                            <a href="https://m2elearning.com/front/login" class="log-bttn">Login</a>
+                            <a href="https://m2elearning.com/front/signup" class="sign-bttn">Register</a>
+                        </div>
+                    </div>
+                    <div class="col-12 d-block d-lg-none">
+                        <div class="mobile_menu"></div>
+                    </div>
+                    <div class="btn-group">
+                        <select class="btn btn-sm " id="language" name="language">
+                            <option value=English selected>English</option>
+                                                        <option value="Spanish" id="lang_12">Spanish</option>
+
+                                                    </select>
+                        <input name="tcountrycode" id="tcountrycode" type="hidden">
+                    </div>
+                    <!-- <div id="google_translate_element"></div> -->
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+<style>
+    button.btn.btn-primary.btn-sm.dropdown-toggle {
+        border-radius: 6px;
+        background-color: #006ea7;
+    }
+
+    .goog-te-menu-value {
+        color: black !important;
+    }
+
+    #google_translate_element {
+
+        bottom: calc(53px + 16px);
+        right: 16px !important;
+        background: none !important;
+        border-radius: 3px;
+        /* padding: 6px; */
+
+    }
+
+    .goog-te-gadget {
+        font-family: Roboto, 'Open Sans', sans-serif !important;
+        text-transform: uppercase;
+    }
+
+    #google_translate_element span {
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: normal !important;
+        /* text-decoration: underline !important; */
+        color: white;
+    }
+
+    .goog-te-gadget-simple {
+        /* background-color: #1466f0 !important;
+        border: 1px solid #dddd !important; */
+        background: #046daa;
+        color: #fff;
+        border-radius: 50px;
+        /* background-color: transparent; */
+        padding: 0px !important;
+        /* border-radius: 4px !important; */
+        font-size: 1rem !important;
+        line-height: 2rem !important;
+        display: inline-block;
+        cursor: pointer;
+        zoom: 1;
+    }
+
+    .goog-te-gadget-simple {
+        border: none !important;
+        padding: 6px 20px !important;
+    }
+
+    .goog-te-gadget-simple:hover {
+        background-color: #fdb813;
+    }
+
+    .goog-te-menu2 {
+        max-width: 100%;
+    }
+
+    .goog-te-menu-value {
+        color: #1466f0 !important;
+    }
+
+    .goog-te-menu-value span:nth-child(5) {
+        display: none;
+    }
+
+    .goog-te-menu-value span:nth-child(3) {
+        border: none !important;
+        font-family: 'Material Icons';
+    }
+
+    .goog-te-gadget-icon {
+        /* background-image: url(https://placehold.it/32) !important;
+               background-position: 0px 0px;
+        height: 32px !important;
+        width: 32px !important;
+        margin-right: 8px !important;
+        background-repeat: no-repeat; */
+        display: none;
+
+    }
+
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    body {
+        top: 0px !important;
+    }
+
+    select#language {
+        padding: 5px 15px 5px 25px;
+    }
+
+    @media screen and (max-width: 500px) {
+
+        #contact-banner {
+            width: 100%;
+            font-size: xx-small;
+            height: 40px !important;
+        }
+
+        select#language {
+            padding: 0px 0px 0px 0px;
+        }
+
+        #txt-banner1 {
+            margin-left: -7px;
+        }
+
+        #txt-banner2 {
+            margin-left: -150px;
+        }
+
+    }
+
+    #lang_12 {
+        align-items: center;
+        text-align: center;
+        display: flex;
+        align-content: center;
+        flex-direction: row-reverse;
+        justify-content: ce nter;
+    }
+</style> <script src="https://m2elearning.com/public/elearnfront/assets/js/home.js"></script>
+<!-- <script>
+    let str = window.location.href;
+    if (str.includes("http:")) {
+        let str2 = str.replace("http:", "https:");
+        window.location.href = str2;
+    }
+</script> -->
+<link rel="stylesheet" href="https://m2elearning.com/public/elearnfront/assets/css/home.css">
+<section class="hero-area" id="home">
+    <div class="main-slider owl-carousel">
+                                    <div class="single-slider-item" style="background-image: url(https://m2elearning.com/storage/cms/homeslider/608fcb3913657.png);border-top-left-radius:10px;">
+                    <div class="slide-tab">
+                        <div class="slide-tab-cell">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 offset-lg-2" style="text-align: center;">
+                                        <h2>We make learning enjoyable</h2>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="single-slider-item" style="background-image: url(img/img1.jpg);border-top-left-radius:10px;">
+                    <div class="slide-tab">
+                        <div class="slide-tab-cell">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 offset-lg-2" style="text-align: center;">
+                                        <h2>Highly Qualified and Experienced Faculty</h2>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="single-slider-item" style="background-image: url(https://m2elearning.com/storage/cms/homeslider/608fcb69386aa.png);border-top-left-radius:10px;">
+                    <div class="slide-tab">
+                        <div class="slide-tab-cell">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 offset-lg-2" style="text-align: center;">
+                                        <h2>Learn anytime anywhere</h2>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="single-slider-item" style="background-image: url(https://m2elearning.com/storage/cms/homeslider/608fcb83f0bd0.png);border-top-left-radius:10px;">
+                    <div class="slide-tab">
+                        <div class="slide-tab-cell">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 offset-lg-2" style="text-align: center;">
+                                        <h2>Redefine your career with new skills training</h2>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+</section>
+<section class="popular-courses section-padding" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-8">
+                <div class="section-heading">
+                    <h2>Our courses</h2>
+                    <p>Select your courses and start learning.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 offset-lg-2  col-md-4 text-right">
+                <a href="https://m2elearning.com/front/start_learning?countrycode=IN" class="biddaloy-btn">View Courses</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="popular-course-carousel owl-carousel">
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="img/img1.jpg">
+                                <h5>
+                                    Internship in ELV  Engineer 
+                                </h5>
+                                                                <p class="course_p">Managing a team of ELV engineers proficient in ELV systems and on-site building practises. Responsible for the IT, Telecom, ELV et...</p>
+                                <a href="#" onClick="viewCourseDetails('30');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/608f9ca52b841.png">
+                                <h5>
+                                    Internship in CCTV Technician
+                                </h5>
+                                                                <p class="course_p">CCTV technicians are specialized in security and personal safety systems and/or home maintenance.</p>
+                                <a href="#" onClick="viewCourseDetails('31');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/608f9cca41a5b.png">
+                                <h5>
+                                    Internship in Application Support Engineer 
+                                </h5>
+                                                                <p class="course_p">The course is perfect for those who are interested in an IT support career and covers various topics like computer basics, hardwar...</p>
+                                <a href="#" onClick="viewCourseDetails('32');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/storage/course/608f9d1b48dcf.png">
+                                <h5>
+                                    Internship in Security Systems Technician 
+                                </h5>
+                                                                <p class="course_p"> M-Squared Security & Automation will let you involve in real time projects to enhance your practical operational skills.</p>
+                                <a href="#" onClick="viewCourseDetails('33');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/storage/course/608f9ecded789.png">
+                                <h5>
+                                    Internship in BMS Engineer
+                                </h5>
+                                                                <p class="course_p"> A BMS Engineer may be called out in times where a BMS system breaks down or is in need of servicing is required.</p>
+                                <a href="#" onClick="viewCourseDetails('34');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/608f9f29189df.png">
+                                <h5>
+                                    Java (Core Java only)
+                                </h5>
+                                                                <p class="course_p">Java is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possibl...</p>
+                                <a href="#" onClick="viewCourseDetails('35');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/608f9f4ba9039.png">
+                                <h5>
+                                    AI
+                                </h5>
+                                                                <p class="course_p">Artificial Intelligence is a vast system and not that easy to learn. But it is easily available to people for learning. Though thi...</p>
+                                <a href="#" onClick="viewCourseDetails('37');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/storage/course/608f9f96ad844.png">
+                                <h5>
+                                    PYTHON  & DJANGO
+                                </h5>
+                                                                <p class="course_p">Python is very beginner-friendly and a fully-functional programming language which can do anything almost any other languages can ...</p>
+                                <a href="#" onClick="viewCourseDetails('38');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/storage/course/608fa088631a5.png">
+                                <h5>
+                                    C#
+                                </h5>
+                                                                <p class="course_p">C# is a high-level language so it is closer to other popular programming languages like C, C++, and Java and thus becomes easy to ...</p>
+                                <a href="#" onClick="viewCourseDetails('39');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/608fa0c4aa15f.png">
+                                <h5>
+                                    Artificial Intelligence & Big Data with  PYTHON
+                                </h5>
+                                                                <p class="course_p">Start your learning of Python for data science, as well as programming in general, with this beginner-friendly introduction to Pyt...</p>
+                                <a href="#" onClick="viewCourseDetails('40');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/608fa2c7887c6.png">
+                                <h5>
+                                    Medical Transcription
+                                </h5>
+                                                                <p class="course_p">Medical transcription, also known as MT, is an allied health profession dealing with the process of transcribing voice-recorded me...</p>
+                                <a href="#" onClick="viewCourseDetails('41');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/storage/course/608fa50088484.png">
+                                <h5>
+                                    C Programming
+                                </h5>
+                                                                <p class="course_p">C is a powerful general-purpose, procedural computer programming language supporting structured programming, lexical variable scop...</p>
+                                <a href="#" onClick="viewCourseDetails('42');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/storage/course/608fa552deb75.png">
+                                <h5>
+                                    C++
+                                </h5>
+                                                                <p class="course_p">C++ supports different ways of programming like procedural, object-oriented, functional, and so on.
+
+</p>
+                                <a href="#" onClick="viewCourseDetails('43');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/608fa57280e38.png">
+                                <h5>
+                                    .Net ( ASP.Net )
+                                </h5>
+                                                                <p class="course_p">.NET / DOT NET is a platform built on top of the operating system. .NET provides a programming platform for developers to build an...</p>
+                                <a href="#" onClick="viewCourseDetails('44');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/608fa5b6a5009.png">
+                                <h5>
+                                    PYTHON(CORE PYTHON)
+                                </h5>
+                                                                <p class="course_p">"Python is very beginner-friendly and a fully-functional programming language which can do anything almost any other languages can...</p>
+                                <a href="#" onClick="viewCourseDetails('45');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/storage/course/608fa5ef90f00.png">
+                                <h5>
+                                    ASP.Net(Advanced)
+                                </h5>
+                                                                <p class="course_p">The course provides in-depth knowledge in ASP.Net 4.7 Web programming. Knowledge of MVC, HTML5, CSS, Bootstrap, WCF, Linq, JavaScr...</p>
+                                <a href="#" onClick="viewCourseDetails('46');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/storage/course/608fa6176dce2.png">
+                                <h5>
+                                    Manual Testing
+                                </h5>
+                                                                <p class="course_p">We  provides training in Software Testing as computers and software are used in critical applications, the outcome of a bug can be...</p>
+                                <a href="#" onClick="viewCourseDetails('47');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/608fa660c291d.png">
+                                <h5>
+                                    Web and Mobile Testing with Selenium
+                                </h5>
+                                                                <p class="course_p">Modern applications that we build invariably have touch-points with its users through web-based and mobile platforms. Users intera...</p>
+                                <a href="#" onClick="viewCourseDetails('48');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/608fa6cddb88e.png">
+                                <h5>
+                                    Automation Testing
+                                </h5>
+                                                                <p class="course_p">This course is intended for learners interested in understanding the principles of automation and the application of tools. Famili...</p>
+                                <a href="#" onClick="viewCourseDetails('49');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/storage/course/608fa7be7143b.png">
+                                <h5>
+                                    Deep Learning
+                                </h5>
+                                                                <p class="course_p">If you want to break into AI, this Specialization in deep learning will help you do so. Deep Learning is one of the most highly so...</p>
+                                <a href="#" onClick="viewCourseDetails('53');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/storage/course/608fa860c11d8.png">
+                                <h5>
+                                    Nano Technology
+                                </h5>
+                                                                <p class="course_p">The student should make an in-depth study of a specific topic within the area of applied nano technology, based on scientific work...</p>
+                                <a href="#" onClick="viewCourseDetails('54');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/608fa88a1a7f0.png">
+                                <h5>
+                                    Augmented Reality
+                                </h5>
+                                                                <p class="course_p">Augmented Reality brings educational content to life, allowing students to view and interact with exciting 3D models, providing gr...</p>
+                                <a href="#" onClick="viewCourseDetails('55');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/608fa9c0df6cf.png">
+                                <h5>
+                                    Robitics
+                                </h5>
+                                                                <p class="course_p">Robotic process automation is a form of business process automation technology based on metaphorical software robots or on artific...</p>
+                                <a href="#" onClick="viewCourseDetails('56');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/storage/course/mcl.jpg">
+                                <h5>
+                                    Machine Learning with PYTHON
+                                </h5>
+                                                                <p class="course_p">"This course dives into the basics of machine learning using an approachable and well-known programming language, Python
+Machine ...</p>
+                                <a href="#" onClick="viewCourseDetails('57');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/storage/course/608faabb491c1.png">
+                                <h5>
+                                    PHP(Basic)
+                                </h5>
+                                                                <p class="course_p">PHP is a scripting language originally designed for producing dynamic web pages. PHP was originally created by Erasmus Leadoff in ...</p>
+                                <a href="#" onClick="viewCourseDetails('60');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/608faaf6d778f.png">
+                                <h5>
+                                    PHP(Advanced)
+                                </h5>
+                                                                <p class="course_p">It simplifies the process and puts the website back into the hands of content creators, allowing you to spend more time on what re...</p>
+                                <a href="#" onClick="viewCourseDetails('61');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/608fab2aa4045.png">
+                                <h5>
+                                    Demo Course
+                                </h5>
+                                                                <p class="course_p">A demo is what you give to show how something works. You might give a demo of your fancy new espresso machine to your weekend gues...</p>
+                                <a href="#" onClick="viewCourseDetails('67');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/storage/course/60cb89b172b66.png">
+                                <h5>
+                                    M2 Training
+                                </h5>
+                                                                <p class="course_p">Training is teaching or developing in oneself or others, any skills and knowledge that relate to specific useful competencies.</p>
+                                <a href="#" onClick="viewCourseDetails('68');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/storage/course/60cb853db09f1.png">
+                                <h5>
+                                    6 Months Software Project Internship
+                                </h5>
+                                                                <p class="course_p">This is a project oriented program available in different programming  languages. One has to select any one language as the core s...</p>
+                                <a href="#" onClick="viewCourseDetails('69');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/6144743b98996.png">
+                                <h5>
+                                    1 Year Internship in Software Development
+                                </h5>
+                                                                <p class="course_p">This is a software developing program available in different languages. One has to select any one language as the core subject and...</p>
+                                <a href="#" onClick="viewCourseDetails('70');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/6163c465214a6.png">
+                                <h5>
+                                    CS Tuition
+                                </h5>
+                                                                <p class="course_p">This course is for school students in eleventh and twelfth grade classes. The course will cover the whole topics of computer scien...</p>
+                                <a href="#" onClick="viewCourseDetails('71');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/storage/course/61825e40c18cd.png">
+                                <h5>
+                                    TestingCourse
+                                </h5>
+                                                                <p class="course_p">This Course is specifically for testing purpose only.</p>
+                                <a href="#" onClick="viewCourseDetails('73');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/storage/course/626622a99a8a1.jpg">
+                                <h5>
+                                    API Testing 
+                                </h5>
+                                                                <p class="course_p">API testing is a type of software testing that involves testing application programming interfaces (APIs)</p>
+                                <a href="#" onClick="viewCourseDetails('75');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/626621ebe06d6.png">
+                                <h5>
+                                    Selenium + Java 
+                                </h5>
+                                                                <p class="course_p">Selenium + Java </p>
+                                <a href="#" onClick="viewCourseDetails('76');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/62726667d16bb.jpg">
+                                <h5>
+                                    JMETER 
+                                </h5>
+                                                                <p class="course_p">JMETER IN PERFORMANCE TESTING</p>
+                                <a href="#" onClick="viewCourseDetails('77');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/storage/course/61cc05a7f3cdc.png">
+                                <h5>
+                                    2 Weeks Software Internship
+                                </h5>
+                                                                <p class="course_p">This is a project oriented program available in different programming  languages. One has to select any one language as the core s...</p>
+                                <a href="#" onClick="viewCourseDetails('78');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/storage/course/61cc0620b8687.png">
+                                <h5>
+                                     Software Project Internship
+                                </h5>
+                                                                <p class="course_p">Academic Internship-   For Engineering and  IT background PG students on the part of Academic curriculum.</p>
+                                <a href="#" onClick="viewCourseDetails('79');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    POST GRADUATE PROGRAM IN DATA ANALYTICS & MACHINE LEARNING
+                                </h5>
+                                                                <p class="course_p">Weekday batches for recent graduates</p>
+                                <a href="#" onClick="viewCourseDetails('92');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/623d5a5b51454.png">
+                                <h5>
+                                    CAREER COUNSELLING & PLANNING
+                                </h5>
+                                                                <p class="course_p">Career development is more than just deciding on a major and what job you want to get when you graduate. It really is a lifelong p...</p>
+                                <a href="#" onClick="viewCourseDetails('102');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    DATA SCIENCE
+                                </h5>
+                                                                <p class="course_p">Data science is the domain of study that deals with vast volumes of data using modern tools and techniques to find unseen patterns...</p>
+                                <a href="#" onClick="viewCourseDetails('105');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    Software testing
+                                </h5>
+                                                                <p class="course_p">Software testing is the act of examining the artifacts and the behavior of the software under test by validation and verification....</p>
+                                <a href="#" onClick="viewCourseDetails('106');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/62de44855bd10.jpg">
+                                <h5>
+                                    Artificial  Intelligence
+                                </h5>
+                                                                <p class="course_p">Artificial intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think like humans a...</p>
+                                <a href="#" onClick="viewCourseDetails('107');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/storage/course/62de415cc3b80.jpeg">
+                                <h5>
+                                    ANDROID DEVELOPMENT
+                                </h5>
+                                                                <p class="course_p">Start here if you are new to programming or new to Android development. These courses show you how to build Android apps using bes...</p>
+                                <a href="#" onClick="viewCourseDetails('110');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/storage/course/62de40b33f5be.jpg">
+                                <h5>
+                                    UI/UX  Training
+                                </h5>
+                                                                <p class="course_p">Attend UX UI Training by Real-Time Expert with Real-Time Scenario’s and from the basics to Understanding, creating a different w...</p>
+                                <a href="#" onClick="viewCourseDetails('111');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/storage/course/6329582a503b4.png">
+                                <h5>
+                                    REACT .JS
+                                </h5>
+                                                                <p class="course_p">React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript Library for building user interfaces or U...</p>
+                                <a href="#" onClick="viewCourseDetails('112');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/storage/course/62ece85f9d2d4.jpg">
+                                <h5>
+                                    MEDICAL CODING
+                                </h5>
+                                                                <p class="course_p">Medical Coding Medical coding is the translation of medical reports into a shortcode used within the healthcare industry.</p>
+                                <a href="#" onClick="viewCourseDetails('113');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    Ingles Básico
+                                </h5>
+                                                                <p class="course_p">Curso de Inglés básico, palabras básicas, pronunciación y gramática, etc </p>
+                                <a href="#" onClick="viewCourseDetails('115');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    Business Accounting & Taxation
+                                </h5>
+                                                                <p class="course_p">This training programs require a systemic syllabus with other aspects like practical learning, interactive classrooms, and prompt ...</p>
+                                <a href="#" onClick="viewCourseDetails('119');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    Basic Accounting & Taxation
+                                </h5>
+                                                                <p class="course_p">Basic accounting records and reveals cash flows and operations. It divides all business transactions into credits and debits. The ...</p>
+                                <a href="#" onClick="viewCourseDetails('122');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    Advanced JAVA
+                                </h5>
+                                                                <p class="course_p">Java </p>
+                                <a href="#" onClick="viewCourseDetails('125');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    SUMMER INTERSHIP -SW-AI
+                                </h5>
+                                                                <p class="course_p">Internship in AI  AI careers have grown in popularity due to the increased use of technology. Some businesses are also allowing Ar...</p>
+                                <a href="#" onClick="viewCourseDetails('126');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    AI - Internship
+                                </h5>
+                                                                <p class="course_p">Internship In AI based on the AI syllabus
+</p>
+                                <a href="#" onClick="viewCourseDetails('135');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg0555C1">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    Internship - Management
+                                </h5>
+                                                                <p class="course_p">Internship in management</p>
+                                <a href="#" onClick="viewCourseDetails('136');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg2D8FA4">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    Data Analytics
+                                </h5>
+                                                                <p class="course_p">Data Analytics</p>
+                                <a href="#" onClick="viewCourseDetails('137');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg8A3AD5">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    Data Analtics Internship
+                                </h5>
+                                                                <p class="course_p">Internship in Data Analysis</p>
+                                <a href="#" onClick="viewCourseDetails('138');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                                        <div class="item">
+                            <div class="popular-content bg48A953">
+                                <img src="https://m2elearning.com/">
+                                <h5>
+                                    Data Analtics Internship
+                                </h5>
+                                                                <p class="course_p">Internship in Data analysis</p>
+                                <a href="#" onClick="viewCourseDetails('139');"   data-toggle="modal" data-target="#course_view"  class="view-detail">View details</a>
+                            </div>
+                        </div>
+                            </div>
+        </div>
+    </div>
+</section>
+
+<div id="homevideo"></div>
+
+
+
+
+<section class="discount-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="contact-info">
+                    <h3><span style="color:#fdb813;font-weight:bold;">Indian</span> Headquarters</h3>
+                                                                        <h5><span style="color:white"><h6><span xss=removed>M Squared Training Center,<br>M Squared Building,Technopark Campus
+                            Thiruvananthapuram,
+                            Kerala, India<br> m2info@m2comsys.us , dhanya.mohan@m2comsys.us</span></h6>
+                    <h6 xss=removed> Phone: <span class="zero">+91-471-4084000 , +91-8113869999 </span></h6>
+<br>
+<h6><span xss=removed>M Squared Training Center, <br>2nd Floor,Thattamveedu Complex,<br>
+                            South Janatha Cross Road,<br>Behind JLN Stadium, Kochi, Kerala, India
+                            <br>  m2trainingcenterkochi@gmail.com</span></h6>
+                    <h6 xss=removed> Phone: <span class="zero">+91-7907303904 </span></h6> </span></h5>
+
+                                        <h3><span style="color:#fdb813;font-weight:bold;">Global</span> Headquarters</h3>
+                                                                        <h5><span style="color:white"><h6><span xss=removed>M2ComSys<br>
+                            2225 Village Walk Drive,
+                            Suite 200
+                            Henderson, Nevada 89052, USA</span></h6>
+                    <h6 xss=removed> Phone: <span class="zero">+1-702-733-8781 , +1-866-733-8781 </span></h6> </span></h5>
+
+                                    </div>
+            </div>
+            <div class="col-lg-7 offset-lg-1 res-pad-top-30">
+                <h3>Send us a Message</h3>
+                <div class="sign-up-area">
+                    <form action="#" id="home_contact_form" name="home_contact_form" method="post">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div id="input-wrapper1">
+                                    <input name="fname" id="fname" type="text" placeholder="First Name" tabindex="1" style="color:#fff;">
+                                    <div id="fname_error" class="err"></div>
+                                </div>
+
+                                <div id="input-wrapper2">
+                                    <input type="text" id="email" name="email" tabindex="3" placeholder="Email address" style="color:#fff;">
+                                    <div id="email_error" class="err"></div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <div id="input-wrapper4">
+                                    <input class="mar-0" name="lname" id="lname" type="text" tabindex="2" placeholder="Last Name" style="color:#fff;">
+                                    <div id="lname_error" class="err"></div>
+                                </div>
+                                <div id="input-wrapper5">
+                                    <input class="mar-0" name="phone" id="phone" tabindex="4" type="tel" placeholder="Phone Number">
+                                    <div id="phone_error" class="err"></div>
+                                </div>
+                                <input type="hidden" name="base_url" id="base_url" value="https://m2elearning.com/" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="input-wrapper3">
+                                    <textarea name="contactmessage" id="contactmessage" tabindex="5" placeholder="Message" style="color:#fff;"></textarea>
+                                    <div id="contactmessage_error" class="err"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6"></div>
+                            <div class="col-lg-6">
+                                <div class="">
+                                    <input class="submit-btn" type="submit" value="send message" id="submit" name="submit">
+                                    <div id=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="event-area">
+        <!--section-padding-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12  section-heading text-center">
+
+                                            <h2>Most Trending Courses</h2>
+                
+                                    <p style="text-align:center">Elearning Certificate courses are designed to provide training that's as streamlined and to-the-point as possible. Built for learners of any ability or knowledge level, each of these online classes provides training in a single topic in clear detail.</p>
+                
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="all-event-call  owl-carousel">
+                        
+                                <div class="single-event single-course-bg" style="height:310px!important;text-align:justify;background-image: url(https://m2elearning.com/storage/cms/trendingcourses/608f977017497.png);">
+                                    <h3>SAP Training</h3>
+
+
+                                    <p> SAP is considered as the most important software in an organization. SAP Can Overcome almost all Challenges SAP is very flexible, they help to improve productivity of an organization.</p>
+                                </div>
+                        
+                                <div class="single-event single-course-bg" style="height:310px!important;text-align:justify;background-image: url(https://m2elearning.com/storage/cms/trendingcourses/608f97de2cf84.png);">
+                                    <h3>PYTHON  & DJANGO</h3>
+
+
+                                    <p> Python and big data are the perfect fit when there is a need for integration between data analysis and web apps or statistical code with the production database. With its advanced library supports it</p>
+                                </div>
+                        
+                                <div class="single-event single-course-bg" style="height:310px!important;text-align:justify;background-image: url(https://m2elearning.com/storage/cms/trendingcourses/6064e3cdba0e8.png);">
+                                    <h3>BIG DATA</h3>
+
+
+                                    <p> Google's Android and Apple's iOS are operating systems used primarily in mobile technology, such as smartphones and tablets. Android, which is Linux-based and partly open source, is more PC-like than</p>
+                                </div>
+                        
+                                <div class="single-event single-course-bg" style="height:310px!important;text-align:justify;background-image: url(https://m2elearning.com/storage/cms/trendingcourses/608f9837c5b15.png);">
+                                    <h3>Java (Core Java only)</h3>
+
+
+                                    <p> Java is a programming language and also a platform. Java is a simple, general purpose, concurrent and object oriented programming language. Learn Java Programming with our best tutors.</p>
+                                </div>
+                                            </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <section class="teacher-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="section-heading">
+                        <h2>Testimonials</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                                        <div class="col-lg-3 col-md-6 col-sm-6 mob-to-res-30">
+                            <div class="single-teacher">
+                                <div class="teacher-to-card">
+                                                                            <img src="https://m2elearning.com/storage/cms/testimonial/62a02e7d5a4d2.jpg" class="testimonial_image">
+                                                                    </div>
+                                <div class="teacher-detail">
+                                    <div class="teacher-detail-content" style="height:330px!important;">
+                                        <h4>S2 Diploma  (CS. IT) Govt Polytechnic College  Neyyattinkara</h4>
+                                        <div style="padding-bottom:4px;">
+                                            <h7>Internship</h7>
+                                        </div>
+                                        <div>
+                                            <p><p>"We had a great experience in our 3 weeks Internship with M Squared Software Services Pvt Ltd, in Technopark Campus. Acquired a lot of information and also we really enjoyed the class and learned a great deal. We would definitely recommend M Squared to others who want to get exposure through internship."</p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-6 mob-to-res-30">
+                            <div class="single-teacher">
+                                <div class="teacher-to-card">
+                                                                            <img src="img/img1.jpg" class="testimonial_image">
+                                                                    </div>
+                                <div class="teacher-detail">
+                                    <div class="teacher-detail-content" style="height:330px!important;">
+                                        <h4>Ajay Das</h4>
+                                        <div style="padding-bottom:4px;">
+                                            <h7>Senior Student</h7>
+                                        </div>
+                                        <div>
+                                            <p>"My career kick-started from the training program in M-Squared under the guidance of Jisha Hari and Sajith S. The course was well structured and delivered in a very effective manner which helped me learn a lot in a very short time."</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-6 mob-to-res-30">
+                            <div class="single-teacher">
+                                <div class="teacher-to-card">
+                                                                            <img src="https://m2elearning.com/storage/cms/testimonial/608fcd317d732.png" class="testimonial_image">
+                                                                    </div>
+                                <div class="teacher-detail">
+                                    <div class="teacher-detail-content" style="height:330px!important;">
+                                        <h4>Sini J</h4>
+                                        <div style="padding-bottom:4px;">
+                                            <h7>Former student</h7>
+                                        </div>
+                                        <div>
+                                            <p>"Overall, I had a great experience. Acquired a lot of information and also I really enjoyed the class and learned a great deal. I would definitely recommend this class to others who want to get exposure to software training."</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-6 mob-to-res-30">
+                            <div class="single-teacher">
+                                <div class="teacher-to-card">
+                                                                            <img src="https://m2elearning.com/storage/cms/testimonial/608f991f466c9.png" class="testimonial_image">
+                                                                    </div>
+                                <div class="teacher-detail">
+                                    <div class="teacher-detail-content" style="height:330px!important;">
+                                        <h4>Sobin Anna Joseph</h4>
+                                        <div style="padding-bottom:4px;">
+                                            <h7>Former student</h7>
+                                        </div>
+                                        <div>
+                                            <p>"The software internship program was very good and useful in my career growth. As a newbie, after this course, I gained the confidence that I can excel beyond what I felt was possible."</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                            </div>
+            <div class="col-lg-4 offset-lg-4 text-center" style="display:none">
+                <a href="#" class="biddaloy-btn mar-top-40">see all</a>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade showcourses course_view" id="course_view" role="dialog" name="course_view">
+    </div>
+    <input type="hidden" id="baseurl" value="https://m2elearning.com/" />
+    <style>
+        .blockUI h4 {
+            color: #00bf00 !important;
+        }
+        section#about1 {
+            padding-bottom: 100px;
+            padding-top: 0px;
+        }
+    </style><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+       .container{
+         margin: 0 auto;
+       } 
+</style>
+
+<section id="footer" class="ftr">
+    <div class="container">
+        <div class="row">
+            <div class="footer-style">
+                <div class="col-lg-3 contact-0">
+                    <div class="logo2">
+                                                                              
+                                <a href="https://m2elearning.com/front/index">
+                                    <img src="https://m2elearning.com/storage/cms/logo/61de7f810fed5.png" alt="" class="footer-logo">
+                                </a>
+
+                                            </div>
+                    <div class="contact-00">
+                        <div class="small-text">
+                            <div class='demopadding'>
+
+                                                                                                            <div class='icon social in'><a href="https://www.facebook.com/Msquared.Training" target="_blank"><i class='fa fa-facebook' style="color:#3b5998"></i></a></div>
+                                                                        <div class='icon social in'><a href="https://in.linkedin.com/company/m-squared-software-&-services" target="_blank"><i class='fa fa-linkedin' style="color:#0e76a8"></i></a></div>
+                                                                        <div class='icon social in'><a href="https://www.youtube.com/channel/UCN8DlLQHTVNyYTpKglO-q0w" target="_blank"><i class='fa fa-youtube-play' style="color:#ff0000"></i></a></div>
+                                                                        <div class='icon social in'><a href="https://www.instagram.com/msquared_technopark" target="_blank"><i class='fa fa-instagram' style="color:#c13584"></i></a></div>
+                                                                <!-- <div class='icon social fb'><a href="https://www.facebook.com/Msquared.Training" target="_blank"><i class='fa fa-facebook' style="color:#3b5998"></i></a></div>
+<div class='icon social in'><a href="https://in.linkedin.com/company/m-squared-software-&-services" target="_blank"><i class='fa fa-linkedin' style="color:#0e76a8"></i></a></div>
+<div class='icon social in'><a href="https://www.youtube.com/channel/UCN8DlLQHTVNyYTpKglO-q0w" target="_blank"><i class="fa fa-youtube-play" style="color:#ff0000"></i></a></div>
+<div class='icon social in'><a href="https://www.instagram.com/msquared_technopark" target="_blank"><i class="fa fa-instagram" style="color:#c13584"></i></a></div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 contact-1">
+                    <div class="small-text">
+                        <p style="text-align: left;
+                           font-size: 14px;
+                           margin-bottom: 16px;
+                           text-transform: uppercase;
+                           font-weight: 500;">Indian Training Center</p>
+                        <!-- <p style="color:#fff;">M Squared Software &amp; Services Pvt Ltd. <br>M Squared Building, Technopark Campus
+                            Thiruvananthapuram – 695581
+                            Kerala, India
+                            <br>
+                            <span style="color:#fff;">m2info@m2comsys.us</span>
+                            <br>
+                            <span style="color:#fff;">
+                                <span>+91-471-4084000 , +91-8129500122</span><br></span>
+                        </p> -->
+                                                                                    <h6><span style="color:white">  <p xss=removed>M Squared Training Center, <br>M Squared Building, Technopark Campus
+                            Thiruvananthapuram – 695581
+                            Kerala, India
+                            <br>
+                            <span xss=removed>dhanya.mohan@m2comsys.us</span>
+                            <br>
+                            <span xss=removed>
+                                <span>+91-471-4084000 , +91-8113869999 </span>
+           </span></h6>
+
+                                            </div>
+                </div>
+ <div class="col-lg-3 contact-2">
+                    <div class="small-text">
+                        <p
+                            style="text-align: left;
+                           font-size: 14px;
+                           margin-bottom: 16px;
+                           text-transform: uppercase;
+                           font-weight: 500;">
+                            Indian Training Center</p>
+                        <h6><span style="color:white">
+                                <p xss="removed">M Squared Training Center,<br>2nd Floor, Thattamveedu Complex
+                                    <br>South Janatha Cross Road, Behind JLN Stadium, Kochi 682025 Kerala, India
+                                    <span xss="removed">m2trainingcenterkochi@gmail.com</span>
+                                    <br>
+                                    <span xss="removed">
+                                        <span>+91-7907303904 </span>
+                                    </span>
+                                </p>
+                            </span></h6>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 contact-3">
+                    <div class="small-text">
+                        <p style="text-align: left;
+                           font-size: 14px;
+                           margin-bottom: 16px;
+                           text-transform: uppercase;
+                           font-weight: 500;">Global Headquarters</p>
+                        <!-- <p style="color:#fff;">M2ComSys ,
+                            2225 Village Walk Drive, Suite 200 Henderson, Nevada 89052, USA
+                            <br>
+                            <span style="color:#fff;">
+                                <span>+1-702-733-8781 ,
+                                    +1-866-733-8781 </span><br></span>
+                        </p> -->
+                                                                                    <h6><span style="color:white">   <p xss=removed>M2ComSys ,
+                            2225 Village Walk Drive, Suite 200 Henderson, Nevada 89052, USA
+                            <br>
+                            <span xss=removed>
+                                <span>+1-702-733-8781 ,
+                                    +1-866-733-8781 </span> </span></h6>
+
+                                            </div>
+                </div>
+            </div>
+        </div>
+         <hr>
+        <div class="row" style="text-align: center;">
+            <div class="col-lg-3">
+                <ul>
+                    <li><a href="https://m2elearning.com/front/terms">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul>
+                    <li><a href="https://m2elearning.com/front/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul>
+                     <li><a href="https://m2elearning.com/front/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul>
+                    <li><a href="https://m2elearning.com/front/blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 50px !important;
+             background-color: #042d5f52;
+             margin-bottom: 0px !important;
+             bottom: 0 !important;">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                <p style="color:#fff;margin:25px 0px;text-align:center;font-size:13px;" class="footer-copy">Copyright © 2024&nbsp;<a href="http://m2india.com/" target="_blank"><span style="color:#fff;"> M Squared Software & Services Pvt Ltd.</span></a>&nbsp;All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="stop" class="scrollTop">
+    <span><a href="#">
+            <i class="fa fa-level-up" aria-hidden="true"></i>
+        </a></span>
+</div>
+<input type="hidden" name="baseurl" id="baseurl" value="https://m2elearning.com/">
+<input type="hidden" id="PAYMENT_KEY" value="80">
+<script src="https://m2elearning.com/public/elearnfront/assets/frontasset/js/owl.carousel.min.js"></script>
+<script src="https://m2elearning.com/public/elearnfront/assets/frontasset/js/slicknav.min.js"></script>
+<script src="https://m2elearning.com/public/elearnfront/assets/frontasset/js/wow.min.js"></script>
+<script src="https://m2elearning.com/public/elearnfront/assets/frontasset/js/isotope.pkgd.min.js"></script>
+<script src="https://m2elearning.com/public/elearnfront/assets/frontasset/js/plugins.js"></script>
+<script src="https://m2elearning.com/public/elearnfront/assets/js/main.js"></script>
+<script src="https://m2elearning.com/public/elearnfront/assets/js/customfooter.js"></script>
+</body>
+
+</html>

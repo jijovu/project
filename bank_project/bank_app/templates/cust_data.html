@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Page</title>
+    <link rel="stylesheet" href="{% static 'css/account.css' %}" />
+  </head>
+  <body>
+    
+    <nav>
+      <div style="margin-top: 15px">
+        <a href="/home/">HOME</a>
+        <a href="/account_open/">CREATE ACCOUNT</a>
+        <a href="/login/">LOGIN</a>
+      </div>
+      <div>
+        <p>Welcome,<span> {{user_info.FirstName}} {{user_info.LastName}}</span>!</p>
+      </div>
+    </nav>
+    <form>
+      {% csrf_token %}
+    <h1>
+      Welcome,
+      <span id="fullName"> {{user_info.FirstName}} {{user_info.LastName}}</span>!
+    </h1>
+    <div class="container">
+      <div class="inner_container">
+        <div class="user-header">
+        </div>
+        <table>
+          <tr>
+            <td>SL NO</td>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Number</th>
+            <th>Account Number</th>
+            <th>Current Balance</th>
+          </tr>
+          <tr>
+            {% for user in user_info %}
+            <td>{{forloop.counter}}</td>
+            <td>{{user.FirstName}}</td>
+            <td>{{user.LastName}}</td>
+            <td>{{user.Email}}</td>
+            <td>{{user.Number}}</td>
+            <td>{{user.Account_Number}}</td>
+            <td>{{user.Current_Balance}}₹</td>
+            {% endfor %}
+          </tr>
+        </table>
+<!-- ----------------------------------------------edit-profile---------------------------------------->
+          <!-- <p>
+            <div class="">
+              <a href="/edit_login/">
+                <button type="submit">Edit Profile</button>
+              </a>
+            </div>
+          </p>
+          <p>
+            <div class="">
+              <a href="/transaction/">
+                <button type="submit">Transactions</button>
+              </a>
+            </div>
+          </p>
+        </div> -->
+
+      </div>
+    </div>
+    <div class="deposit">
+      <a href="/deposit/">
+        <button type="submit">Deposit</button>
+      </a>
+    </div>
+    <div class="withdraw">
+      <a href="/withdraw/">
+        <button type="submit">Withdraw</button>
+      </a>
+    </div>
+  </form>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Bank Account</title>
+    <link rel="stylesheet" href="{% static 'css/account_open.css' %}" />
+  </head>
+  <body>
+    <nav>
+      <a href="/home/">HOME</a>
+      <a href="/account_open/">CREATE ACCOUNT</a>
+      <a href="/login/">LOGIN</a>
+    </nav>
+    <div class="form_container">
+      <form action="/account_open/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Open Bank Account</h2>
+
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" required />
+
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required maxlength="10" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="initial_deposit">Initial Deposit (INR):</label>
+        <input
+          type="number"
+          id="initial_deposit"
+          name="initial_deposit"
+          required
+          min="0"
+        />
+        
+        <!-- <label for="is_admin">Admin :</label>
+        <input type="radio" id="is_admin" name="superuser" required />
+        
+        <label for="is_user">User :</label>
+        <input type="radio" id="is_user" name="superuser" required />
+
+        <p class="error-message" id="deposit-error"></p> -->
+
+        <button type="submit">Open Account</button>
+      </form>
+    </div>
+    <script>
+      //Admin input 
+      /* document.getElementById("is_admin").value= True;
+      document.getElementById("is_user").value= False; */
+      // JavaScript to display an error message for negative deposit value
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          const depositField = document.getElementById("initial_deposit");
+          const depositError = document.getElementById("deposit-error");
+
+          if (parseFloat(depositField.value) < 0) {
+            event.preventDefault();
+            depositError.textContent = "Deposit value cannot be negative.";
+          } else {
+            depositError.textContent = "";
+          }
+        });
+    </script>
+  </body>
+</html>
